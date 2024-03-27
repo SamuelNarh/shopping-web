@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Home from "./Pages/Home";
+import Navigation from "./Pages/Navigation";
 import {
   BrowserRouter as Router,
   Route,
@@ -13,7 +13,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" exact>
-          <Home />
+          <Navigation />
         </Route>
         <Redirect to="/" />
       </Switch>

@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Navigation from "./Pages/Navigation";
+import Navigation from "./Components/Header/Pages/Navigation";
 import {
   BrowserRouter as Router,
   Route,

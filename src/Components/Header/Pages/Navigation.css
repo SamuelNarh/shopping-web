@@ -8,6 +8,7 @@
   margin-right: auto;
   width: 900px;
   padding-top: 25px;
+  object-fit: contain;
 }
 
 @media (max-width: 600px) {

@@ -18,9 +18,11 @@ const Product = () => {
 
   return (
     <>
-      {Items.map((item) => (
-        <ProductItem key={item.id} item={item} />
-      ))}
+      <div className="flex flex-wrap">
+        {Items.map((item) => (
+          <ProductItem key={item.id} item={item} />
+        ))}
+      </div>
     </>
   );
 };

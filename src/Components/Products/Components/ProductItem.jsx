@@ -3,59 +3,26 @@ import "./Product.css";
 
 const ProductItem = (props) => {
   return (
-    // <div className="card">
-    //   <div className="card-img">
-    //     <img
-    //       className="img"
-    //       src={`http://127.0.0.1:8000/${props.item.image_url}`}
-    //       alt={`product-img`}
-    //     />
-    //   </div>
-    //   <div className="card-title">{props.item.title}</div>
-    //   <div className="card-subtitle">{props.item.description}</div>
-    //   <hr className="card-divider" />
-    //   <div className="card-footer">
-    //     <div className="card-price">
-    //       <span>$</span> 123.45
-    //     </div>
-    //     <button className="card-btn">
-    //       <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-    //         <path d="m397.78 316h-205.13a15 15 0 0 1 -14.65-11.67l-34.54-150.48a15 15 0 0 1 14.62-18.36h274.27a15 15 0 0 1 14.65 18.36l-34.6 150.48a15 15 0 0 1 -14.62 11.67zm-193.19-30h181.25l27.67-120.48h-236.6z"></path>
-    //         <path d="m222 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z"></path>
-    //         <path d="m368.42 450a57.48 57.48 0 1 1 57.48-57.48 57.54 57.54 0 0 1 -57.48 57.48zm0-84.95a27.48 27.48 0 1 0 27.48 27.47 27.5 27.5 0 0 0 -27.48-27.47z"></path>
-    //         <path d="m158.08 165.49a15 15 0 0 1 -14.23-10.26l-25.71-77.23h-47.44a15 15 0 1 1 0-30h58.3a15 15 0 0 1 14.23 10.26l29.13 87.49a15 15 0 0 1 -14.23 19.74z"></path>
-    //       </svg>
-    //     </button>
-    //   </div>
-    // </div>
-    <div class="card">
-      <div class="image_container">
-        <img src={`http://127.0.0.1:8000/${props.item.image_url}`} alt="product-img" />
+    <div className="card">
+      <div className="card-img">
+        <img
+          src={`http://127.0.0.1:8000/${props.item.image_url}`}
+          alt="product-img"
+        />
       </div>
-      <div class="title">
-        <span>New brand name</span>
+      <div className="card-info">
+        <p className="text-title">{props.item.title}</p>
+        <p className="text-body">{props.item.description}</p>
       </div>
-      <div class="action">
-        <div class="price">
-          <span>$299</span>
-        </div>
-        <button class="cart-button">
-          <svg
-            class="cart-icon"
-            stroke="currentColor"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-              stroke-linejoin="round"
-              stroke-linecap="round"
-            ></path>
+      <div className="card-footer">
+        <span className="text-title">${props.item.price}</span>
+        <div className="card-button">
+          <svg className="svg-icon" viewBox="0 0 20 20">
+            <path d="M17.72,5.011H8.026c-0.271,0-0.49,0.219-0.49,0.489c0,0.271,0.219,0.489,0.49,0.489h8.962l-1.979,4.773H6.763L4.935,5.343C4.926,5.316,4.897,5.309,4.884,5.286c-0.011-0.024,0-0.051-0.017-0.074C4.833,5.166,4.025,4.081,2.33,3.908C2.068,3.883,1.822,4.075,1.795,4.344C1.767,4.612,1.962,4.853,2.231,4.88c1.143,0.118,1.703,0.738,1.808,0.866l1.91,5.661c0.066,0.199,0.252,0.333,0.463,0.333h8.924c0.116,0,0.22-0.053,0.308-0.128c0.027-0.023,0.042-0.048,0.063-0.076c0.026-0.034,0.063-0.058,0.08-0.099l2.384-5.75c0.062-0.151,0.046-0.323-0.045-0.458C18.036,5.092,17.883,5.011,17.72,5.011z"></path>
+            <path d="M8.251,12.386c-1.023,0-1.856,0.834-1.856,1.856s0.833,1.853,1.856,1.853c1.021,0,1.853-0.83,1.853-1.853S9.273,12.386,8.251,12.386z M8.251,15.116c-0.484,0-0.877-0.393-0.877-0.874c0-0.484,0.394-0.878,0.877-0.878c0.482,0,0.875,0.394,0.875,0.878C9.126,14.724,8.733,15.116,8.251,15.116z"></path>
+            <path d="M13.972,12.386c-1.022,0-1.855,0.834-1.855,1.856s0.833,1.853,1.855,1.853s1.854-0.83,1.854-1.853S14.994,12.386,13.972,12.386z M13.972,15.116c-0.484,0-0.878-0.393-0.878-0.874c0-0.484,0.394-0.878,0.878-0.878c0.482,0,0.875,0.394,0.875,0.878C14.847,14.724,14.454,15.116,13.972,15.116z"></path>
           </svg>
-          <span>Add to cart</span>
-        </button>
+        </div>
       </div>
     </div>
   );

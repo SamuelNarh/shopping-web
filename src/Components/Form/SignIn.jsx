@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom/";
 import "./Form.css";
 import Button from "../../UI/Button/Button";
 
@@ -43,10 +44,6 @@ const SignIn = () => {
 
   const passwordHandler = (event) => {
     setPassword(event.target.value);
-  };
-
-  const signupHandler = () => {
-    console.log("clicked");
   };
 
   return (
@@ -99,10 +96,10 @@ const SignIn = () => {
       </div>
       <Button className="button-submit">Sign In</Button>
       <p className="p">
-        Don't have an account?{" "}
-        <span className="span" onClick={signupHandler}>
-          Sign Up
-        </span>
+        Don't have an account?
+        <Link className="span" to="signup">
+          Sign up
+        </Link>
       </p>
       <div className="flex-row"></div>
     </form>

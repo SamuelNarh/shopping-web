@@ -18,7 +18,7 @@ const Product = () => {
 
   return (
     <>
-      <div className="flex flex-wrap">
+      <div className="flex justify-center gap-4 pt-6 flex-wrap">
         {Items.map((item) => (
           <ProductItem key={item.id} item={item} />
         ))}

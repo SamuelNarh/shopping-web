@@ -6,15 +6,11 @@ import Logo from "../Components/Logo";
 
 const Navigation = () => {
   return (
-    <>
-      <div className="Navigation">
-        <div className="main">
-          <Logo />
-          <Search />
-          <NavLinks />
-        </div>
-      </div>
-    </>
+    <div className="Navigation">
+      <Logo />
+      <Search />
+      <NavLinks />
+    </div>
   );
 };
 

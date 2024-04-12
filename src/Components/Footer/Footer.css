@@ -2,7 +2,7 @@
   background-color: rgb(17, 71, 133);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content:start;
   padding: 5px 5px;
   gap: 20px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
@@ -16,7 +16,7 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background-color: rgb(44, 44, 44);
+  background-color: rgb(39, 85, 165);
   display: flex;
   align-items: center;
   justify-content: center;

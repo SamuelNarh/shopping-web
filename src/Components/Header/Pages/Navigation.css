@@ -1,15 +1,11 @@
 .Navigation {
-  background: #005873;
-  height: 70px;
-}
-.main {
+  background: #163c48;
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  width: 900px;
-  padding-top: 25px;
-  object-fit: contain;
+  justify-content: center;
+  padding-top: 10px;
+  gap: 7px;
 }
+
 
 @media (max-width: 600px) {
   .main {

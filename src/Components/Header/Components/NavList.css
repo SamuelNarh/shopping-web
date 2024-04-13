@@ -1,6 +1,7 @@
 .ul {
   list-style: none;
-  color: white;
+  color: rgb(2, 2, 4);
   gap: 34px;
   display: flex;
+
 }

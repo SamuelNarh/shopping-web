@@ -3,6 +3,7 @@ import "./App.css";
 import Home from "./Pages/Home";
 import SignInPage from "./Pages/SignInPage";
 import SignupPage from "./Pages/SignupPage";
+import User from "./Pages/User";
 
 import {
   BrowserRouter as Router,
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path="/signup" exact>
           <SignupPage />
+        </Route>
+        <Route path="/signin/user" exact>
+          <User />
         </Route>
         <Redirect to="/" />
       </Switch>

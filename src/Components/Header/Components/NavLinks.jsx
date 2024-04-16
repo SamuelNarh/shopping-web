@@ -1,10 +1,8 @@
-import React,{useContext} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./NavList.css";
-import CartContext from "../../../store/cart-context";
 
 const NavLinks = () => {
-  const  ctx = useContext(CartContext);
   return (
     <div className="nav-links ">
       <ul className="ul">
@@ -172,7 +170,6 @@ const NavLinks = () => {
                 strokeWidth="1.5"
               />
             </svg>
-            <span>{ctx.count}</span>
             <label>Cart</label>
           </div>
         </Link>

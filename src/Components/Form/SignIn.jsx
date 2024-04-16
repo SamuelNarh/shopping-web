@@ -1,57 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom/";
 import "./Form.css";
 import Button from "../../UI/Button/Button";
-import User from "../../Pages/User";
+import AuthContext from "../../store/auth-context";
 
 const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLoggedin, setisLoggedin] = useState(false);
 
-  // Handling the signin event of the form
-  const signinHandler = (event) => {
-    event.preventDefault();
-
-    if (email.trim().length < 5 || password.length < 8) {
-      alert("Please enter valid email and password!");
-    } else {
-      // Sends this data
-      const LoginData = new FormData();
-      LoginData.append("username", email);
-      LoginData.append("password", password);
-
-      const requestOptions = {
-        method: "POST",
-        body: LoginData,
-      };
-
-      fetch("http://127.0.0.1:8000/login", requestOptions)
-        .then((res) => {
-          if (res.ok) {
-            return res.json();
-          }
-          throw res;
-        })
-        .then((data) => console.log(data), setisLoggedin(true))
-        .catch((err) => console.log(err));
-
-      setEmail("");
-      setPassword("");
-    }
-  };
-
-  const emailHandler = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const passwordHandler = (event) => {
-    setPassword(event.target.value);
-  };
+  const ctx = useContext(AuthContext);
 
   return (
     <>
-      <form className="form" onSubmit={signinHandler}>
+      <form className="form" onSubmit={ctx.signinHandler}>
         <div className="flex-column">
           <label>Email </label>
         </div>
@@ -70,8 +29,8 @@ const SignIn = () => {
             placeholder="Enter your Email"
             className="input"
             type="email"
-            onChange={emailHandler}
-            value={email}
+            onChange={ctx.emailHandler}
+            value={ctx.email}
           />
         </div>
         <div className="flex-column">
@@ -91,8 +50,8 @@ const SignIn = () => {
             placeholder="Enter your Password"
             className="input"
             type="password"
-            onChange={passwordHandler}
-            value={password}
+            onChange={ctx.passwordHandler}
+            value={ctx.password}
           />
         </div>
         <div className="flex-row">
@@ -107,7 +66,6 @@ const SignIn = () => {
         </p>
         <div className="flex-row"></div>
       </form>
-      {isLoggedin && <User />}
     </>
   );
 };

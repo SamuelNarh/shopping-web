@@ -1,74 +1,31 @@
-import React, { useState } from "react";
-import Button from "../../UI/Button/Button";
+import React, { useEffect, useState } from "react";
 import "./Cart.css";
+import CartItem from "./CartItem";
 
 const Cart = () => {
-  const [count, setCount] = useState(1);
-  const increaseCountHandler = () => {
-    setCount(count + 1);
-  };
+  const [isAddingToCart, setIsAddingToCart] = useState([]);
+  // Fetch data from server when the component is mounted
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/cart/user/1")
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw res;
+      })
+      .then((data) => {
+        console.log(data);
+        setIsAddingToCart(data);
+      });
+  },[]);
 
-  const decreaseCountHandler = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-
-  };
   return (
     <>
       <div className="master-container flex justify-center pt-6">
-        <div className="card cart">
-          <label className="title">Your cart</label>
-          <div className="products">
-            <div className="product">
-              <img src="/images/shoes1.jpg" alt="" />
-              <div>
-                <span>Cheese Burger</span>
-                <p>Extra Spicy</p>
-                <p>No mayo</p>
-              </div>
-              <div className="quantity">
-                <Button onClick={decreaseCountHandler}>
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    height="14"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
-                      strokeWidth="2.5"
-                      stroke="#47484b"
-                      d="M20 12L4 12"
-                    ></path>
-                  </svg>
-                </Button>
-                <label>{count}</label>
-                <Button onClick={increaseCountHandler}>
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    height="14"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinejoin="round"
-                      strokeLinecap="round"
-                      strokeWidth="2.5"
-                      stroke="#47484b"
-                      d="M12 4V20M20 12H4"
-                    ></path>
-                  </svg>
-                </Button>
-              </div>
-              <label className="price small">$23.99</label>
-            </div>
-          </div>
-        </div>
-
+        <label className="title">Your cart</label>
+        {isAddingToCart.map((item) => (
+          <CartItem key={item.cartlist.id} item={item.cartlist} />
+        ))}
         <div className="card checkout">
           <label className="title">Checkout</label>
           <div className="details">
@@ -83,7 +40,7 @@ const Cart = () => {
             <label className="price">
               <sup>$</sup>57.99
             </label>
-            <button className="checkout-btn">Checkout</button>
+            <button className="checkout-btn">Pay</button>
           </div>
         </div>
       </div>

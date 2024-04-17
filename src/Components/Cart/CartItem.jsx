@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "../../UI/Button/Button";
-import CartContext from "../../store/cart-context";
 
 const CartItem = (props) => {
-  const ctx = useContext(CartContext);
   return (
     <div className="card cart">
       <div className="products">
@@ -32,8 +30,8 @@ const CartItem = (props) => {
                 ></path>
               </svg>
             </Button>
-            <label>{ctx.count}</label>
-            <Button onClick={ctx.increaseCountHandler}>
+            <label></label>
+            <Button>
               <svg
                 fill="none"
                 viewBox="0 0 24 24"

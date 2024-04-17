@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom/";
+
 import "./Form.css";
 import Button from "../../UI/Button/Button";
 
@@ -198,7 +199,7 @@ const SignUp = () => {
       <Button className="button-submit">Sign Up</Button>
       <p className="p">
         Already have an account?
-        <Link className="span" to="signin">
+        <Link className="span" to="/accounts/login">
           Log in
         </Link>
       </p>

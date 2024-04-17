@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom/";
+import { Link} from "react-router-dom";
 import "./Form.css";
 import Button from "../../UI/Button/Button";
 import AuthContext from "../../store/auth-context";
@@ -60,7 +60,7 @@ const SignIn = () => {
         <Button className="button-submit">Sign In</Button>
         <p className="p">
           Don't have an account?
-          <Link className="span" to="signup">
+          <Link to="/accounts/signup" className="span">
             Sign up
           </Link>
         </p>

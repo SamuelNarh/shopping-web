@@ -4,9 +4,21 @@ import CartItem from "./CartItem";
 
 const Cart = () => {
   const [isAddingToCart, setIsAddingToCart] = useState([]);
-  // Fetch data from server when the component is mounted
+
+  // // Fetch data from server when the component is mounted
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/cart/user/1")
+    const user_id = Number(localStorage.getItem("user-id"));
+    const token_type = localStorage.getItem("token-type");
+    const auth_token = localStorage.getItem("auth-token");
+    console.log(token_type, auth_token);
+    const requestOptions = {
+      method: "GET",
+      headers: {
+        Authorization: token_type + " " + auth_token,
+      },
+    };
+
+    fetch(`http://127.0.0.1:8000/cart/user/${user_id}`, requestOptions)
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -16,8 +28,12 @@ const Cart = () => {
       .then((data) => {
         console.log(data);
         setIsAddingToCart(data);
-      });
-  },[]);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  //Handle pay fnx
+  const payHandler = () => {};
 
   return (
     <>
@@ -40,7 +56,9 @@ const Cart = () => {
             <label className="price">
               <sup>$</sup>57.99
             </label>
-            <button className="checkout-btn">Pay</button>
+            <button className="checkout-btn" onClick={payHandler}>
+              Pay
+            </button>
           </div>
         </div>
       </div>

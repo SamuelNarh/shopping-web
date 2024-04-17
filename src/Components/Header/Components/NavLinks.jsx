@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NavList.css";
 
+
 const NavLinks = () => {
   return (
     <div className="nav-links ">
@@ -117,8 +118,7 @@ const NavLinks = () => {
             <label>Contact Us</label>
           </div>
         </Link>
-
-        <Link to="/signin">
+        <Link to="/accounts/login">
           <div className="flex items-center justify-center ">
             <svg
               className="w-10 h-9"
@@ -136,7 +136,7 @@ const NavLinks = () => {
             <label>Account</label>
           </div>
         </Link>
-        <Link to="">
+        <Link to="/user">
           <div className="flex items-center justify-center ">
             <svg
               width="800px"

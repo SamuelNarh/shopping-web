@@ -8,12 +8,12 @@ const ProductItem = (props) => {
   const addtoCartHandler = () => {
     const addtoCart = JSON.stringify({
       product_id: props.item.id,
-      user_id: ctx.user_id,
+      user_id: Number(ctx.user_id),
     });
     const requestOptions = {
       method: "POST",
       body: addtoCart,
-      header: new Headers({
+      headers: new Headers({
         Authorization: ctx.token_type + " " + ctx.accesstoken,
         "Content-Type": "application/json",
       }),
@@ -25,7 +25,7 @@ const ProductItem = (props) => {
         }
         throw res;
       })
-      .then((data) => console.log(data))
+      .then((data) => console.log(data, "successful"))
       .catch((err) => console.log(err));
   };
 

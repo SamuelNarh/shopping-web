@@ -5,32 +5,20 @@ import SignInPage from "./Pages/SignInPage";
 import SignupPage from "./Pages/SignupPage";
 import User from "./Pages/User";
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route ,Navigate } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/signin" exact>
-          <SignInPage />
-        </Route>
-        <Route path="/signup" exact>
-          <SignupPage />
-        </Route>
-        <Route path="/signin/user" exact>
-          <User />
-        </Route>
-        <Redirect to="/" />
-      </Switch>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/signin" element={<SignInPage />}></Route>
+        <Route path="/signup" element={<SignupPage />}></Route>
+        <Route path="/signin/user" element={<User />}></Route>
+        {/* default redirect to home page */}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

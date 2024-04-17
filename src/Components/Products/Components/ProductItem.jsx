@@ -7,8 +7,8 @@ const ProductItem = (props) => {
 
   const addtoCartHandler = () => {
     const addtoCart = JSON.stringify({
-      product_id: 0,
-      user_id: 0,
+      product_id: props.item.id,
+      user_id: ctx.user_id,
     });
     const requestOptions = {
       method: "POST",
@@ -25,7 +25,8 @@ const ProductItem = (props) => {
         }
         throw res;
       })
-      .then((data) => console.log(data));
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
   };
 
   return (

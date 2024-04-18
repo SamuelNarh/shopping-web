@@ -40,7 +40,7 @@ const Cart = () => {
       <div className="master-container flex justify-center pt-6">
         <label className="title">Your cart</label>
         {isAddingToCart.map((item) => (
-          <CartItem key={item.cartlist.id} item={item.cartlist} />
+          <CartItem key={item.cartlist.id} item={item.cartlist} cartid={item.id}/>
         ))}
         <div className="card checkout">
           <label className="title">Checkout</label>

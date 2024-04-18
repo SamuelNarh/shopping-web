@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "../../UI/Button/Button";
+import AuthContext from "../../store/auth-context";
 
 const CartItem = (props) => {
+  const ctx = useContext(AuthContext);
+
+  const removeFromCartHandler = () => {
+    const requestOptions = {
+      method: "DELETE",
+      headers: {
+        Authorization: ctx.token_type + " " + ctx.accesstoken,
+      },
+    };
+   (fetch(`http://127.0.0.1:8000/cart/${props.cartid}`, requestOptions))
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw res;
+      })
+      .then((data) => window.location.reload())
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="card cart">
       <div className="products">
@@ -101,7 +121,7 @@ const CartItem = (props) => {
           </label>
         </div>
       </div>
-      <div className="flex justify-end">
+      <div className="flex justify-end" onClick={removeFromCartHandler}>
         <span>
           <svg
             width="8000px"

@@ -10,7 +10,6 @@ const Cart = () => {
     const user_id = Number(localStorage.getItem("user-id"));
     const token_type = localStorage.getItem("token-type");
     const auth_token = localStorage.getItem("auth-token");
-    console.log(token_type, auth_token);
     const requestOptions = {
       method: "GET",
       headers: {
@@ -26,7 +25,6 @@ const Cart = () => {
         throw res;
       })
       .then((data) => {
-        console.log(data);
         setIsAddingToCart(data);
       })
       .catch((err) => console.log(err));

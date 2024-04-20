@@ -1,9 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Button from "../../UI/Button/Button";
 import AuthContext from "../../store/auth-context";
 
 const CartItem = (props) => {
   const ctx = useContext(AuthContext);
+
+  const [count, setCount] = useState(1);
+  const [price,setPrice] =useState(0)
+
+  const increaseCountHandler = () => {
+    setCount(count + 1);
+    setPrice(count*price)
+  };
+
+  const decreaseCountHandler = () => {
+    if (count !== 1) {
+      setCount(count - 1);
+    }
+  };
 
   const removeFromCartHandler = () => {
     const requestOptions = {
@@ -12,7 +26,7 @@ const CartItem = (props) => {
         Authorization: ctx.token_type + " " + ctx.accesstoken,
       },
     };
-   (fetch(`http://127.0.0.1:8000/cart/${props.cartid}`, requestOptions))
+    fetch(`http://127.0.0.1:8000/cart/${props.cartid}`, requestOptions)
       .then((res) => {
         if (res.ok) {
           return res.json();
@@ -32,8 +46,7 @@ const CartItem = (props) => {
             <p>{props.item.description}</p>
           </div>
           <div className="quantity">
-            <Button>
-              {/* onClick={decreaseCountHandler} */}
+            <Button onClick={decreaseCountHandler}>
               <svg
                 fill="none"
                 viewBox="0 0 24 24"
@@ -50,8 +63,8 @@ const CartItem = (props) => {
                 ></path>
               </svg>
             </Button>
-            <label></label>
-            <Button>
+            <label>{count}</label>
+            <Button onClick={increaseCountHandler}>
               <svg
                 fill="none"
                 viewBox="0 0 24 24"
@@ -70,14 +83,7 @@ const CartItem = (props) => {
             </Button>
           </div>
           <label className="price small flex ">
-            <svg
-              fill="#000000"
-              version="1.1"
-              id="Capa_1"
-              width="800px"
-              height="800px"
-              viewBox="0 0 87.874 87.874"
-            >
+            <svg fill="#00000" version="1.1" id="Capa_1" viewBox="0 0 87.8 49">
               <g>
                 <path
                   d="M34.575,87.874c-0.354,0-0.708-0.046-1.053-0.138c-1.063-0.278-1.956-0.957-2.511-1.909
@@ -121,7 +127,7 @@ const CartItem = (props) => {
           </label>
         </div>
       </div>
-      <div className="flex justify-end" onClick={removeFromCartHandler}>
+      <div className="flex justify-end">
         <span>
           <svg
             width="8000px"
@@ -130,6 +136,7 @@ const CartItem = (props) => {
             fill="none"
             stroke="#ff1a1a"
             className="remove"
+            onClick={removeFromCartHandler}
           >
             <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
@@ -140,14 +147,13 @@ const CartItem = (props) => {
             />
 
             <g id="SVGRepo_iconCarrier">
-              {" "}
               <path
                 d="M7 12L17 12"
                 stroke="#ff0000"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-              />{" "}
+              />
             </g>
           </svg>
         </span>

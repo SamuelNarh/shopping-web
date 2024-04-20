@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Form.css";
 import Button from "../../UI/Button/Button";
 import AuthContext from "../../store/auth-context";
 
 const SignIn = () => {
-
   const ctx = useContext(AuthContext);
 
   return (

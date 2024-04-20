@@ -28,17 +28,12 @@ export const AuthContextProvider = (props) => {
     setUser_id(localStorage.getItem("user-id"));
   }, []);
 
-
   const navigate = useNavigate();
 
   // Handling the signin event of the form
   const signinHandler = (event) => {
     event.preventDefault();
     try {
-      // if (email.trim().length < 5 || password.length < 8) {
-      //   alert("Please enter valid email and password!");
-      // } else {
-      // Sends this data
       const LoginData = new FormData();
       LoginData.append("username", email);
       LoginData.append("password", password);
@@ -56,16 +51,14 @@ export const AuthContextProvider = (props) => {
           throw res;
         })
         .then((data) => {
-          console.log(data);
           setAccestoken(data.access_token);
           setToken_type(data.token_type);
-          setUser_id(() => data.user_id, []);
+          setUser_id(data.user_id);
           setUsername(data.username);
           localStorage.setItem("auth-token", data.access_token);
           localStorage.setItem("token-type", data.token_type);
           localStorage.setItem("user-id", data.user_id);
           localStorage.setItem("username", data.username);
-          console.log(data.user_id);
           navigate("/");
         })
         .catch((err) => console.log(err))
@@ -85,11 +78,13 @@ export const AuthContextProvider = (props) => {
   };
 
   const onLogout = () => {
+    localStorage.clear();
     setAccestoken("");
     setToken_type("");
     setUsername("");
     setEmail("");
     setPassword("");
+    navigate("/");
   };
 
   return (

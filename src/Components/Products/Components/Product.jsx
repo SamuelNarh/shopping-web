@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
+import './Product.css'
 
 
 const Product = () => {
@@ -19,7 +20,7 @@ const Product = () => {
 
   return (
     <>
-      <div className="flex justify-center gap-4 pt-6 flex-wrap">
+      <div className="flex justify-center gap-4 pt-12 flex-wrap">
         {Items.map((item) => (
           <ProductItem key={item.id} item={item} />
         ))}

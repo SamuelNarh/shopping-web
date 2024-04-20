@@ -19,7 +19,7 @@ const CartItem = (props) => {
         }
         throw res;
       })
-      .then((data) => window.location.reload())
+      .then(() => window.location.reload())
       .catch((err) => console.log(err));
   };
   return (

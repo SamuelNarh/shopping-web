@@ -28,6 +28,13 @@ export const AuthContextProvider = (props) => {
     setUser_id(localStorage.getItem("user-id"));
   }, []);
 
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     localStorage.clear();
+  //     window.location.reload();
+  //   }, 20000);
+  // }, []);
+
   const navigate = useNavigate();
 
   // Handling the signin event of the form

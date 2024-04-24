@@ -20,7 +20,7 @@ const Product = () => {
 
   return (
     <>
-      <div className=" box flex justify-center gap-4 pt-12 flex-wrap">
+      <div className=" box flex justify-center gap-3 pt-12 flex-wrap">
         {Items.map((item) => (
           <ProductItem key={item.id} item={item} />
         ))}

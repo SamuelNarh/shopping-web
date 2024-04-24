@@ -51,6 +51,7 @@ const SignIn = () => {
             type="password"
             onChange={ctx.passwordHandler}
             value={ctx.password}
+            autoComplete="new-password"
           />
         </div>
         <div className="flex-row">

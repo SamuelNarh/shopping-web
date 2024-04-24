@@ -1,4 +1,5 @@
 import React from "react";
+import "./slideshow.css";
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
@@ -15,7 +16,8 @@ const Slideshow = () => (
   <AutoplaySlider
     play={true}
     cancelOnInteraction={false} // should stop playing on user interaction
-    interval={6000}
+    interval={4000}
+    className="slider"
   >
     <div data-src={sportscar1} />
     <div data-src={sportscar2} />

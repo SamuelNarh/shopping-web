@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import SignInPage from "./Pages/SignInPage";
 import SignupPage from "./Pages/SignupPage";
 import User from "./Pages/User";
+import Admin from "./Pages/Admin";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
@@ -15,6 +16,8 @@ function App() {
         <Route path="/accounts/login" element={<SignInPage />}></Route>
         <Route path="/accounts/signup" element={<SignupPage />}></Route>
         <Route path="/user" element={<User />}></Route>
+        <Route path="/admin" element={<Admin />}></Route>
+
         {/* default redirect to home page */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

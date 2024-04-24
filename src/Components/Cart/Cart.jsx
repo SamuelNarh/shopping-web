@@ -10,6 +10,7 @@ const Cart = () => {
     const user_id = Number(localStorage.getItem("user-id"));
     const token_type = localStorage.getItem("token-type");
     const auth_token = localStorage.getItem("auth-token");
+  
     const requestOptions = {
       method: "GET",
       headers: {

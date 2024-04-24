@@ -149,6 +149,7 @@ const SignUp = () => {
           className="input"
           onChange={phoneNumberHandler}
           value={phone_number}
+          type="text"
         />
       </div>
       <div className="flex-column">
@@ -170,6 +171,7 @@ const SignUp = () => {
           type="password"
           onChange={passwordHandler}
           value={password}
+          autoComplete="new-password"
         />
       </div>
       <div className="flex-column">
@@ -191,6 +193,7 @@ const SignUp = () => {
           type="password"
           onChange={cpasswordHandler}
           value={cpassword}
+          autoComplete="new-password"
         />
       </div>
       <div className="flex-row">

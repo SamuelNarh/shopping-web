@@ -44,6 +44,7 @@ const cart = useContext(CartContext)
         <img
           src={`http://127.0.0.1:8000/${props.item.image_url}`}
           alt="product-img"
+          className="image"
         />
       </div>
       <div className="card-info">
@@ -51,7 +52,7 @@ const cart = useContext(CartContext)
         <p className="text-body">{props.item.description}</p>
       </div>
       <div className="card-footer">
-        <span className="text-title flex">
+        <span className="amount flex">
           {" "}
           <svg fill="#00000" version="1.1" id="Capa_1" viewBox="0 0 87.8 49">
             <g>

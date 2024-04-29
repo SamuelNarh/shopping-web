@@ -4,8 +4,9 @@ import { useEffect } from "react";
 const CartContext = React.createContext({
   count: 0,
   price: 0,
+  // quatityHandler:()=>{},
   countHandler: () => {},
-  priceHandler: (event) => {},
+  priceHandler: () => {},
 });
 
 export const CartContextProvider = (props) => {
@@ -17,6 +18,9 @@ export const CartContextProvider = (props) => {
     setCount(count)
   },[])
 
+  // const quatityHandler=(event)=>{
+  // }
+
   const priceHandler = (event) => setprice();
   const countHandler = () =>{
     localStorage.setItem("count",count +1)
@@ -26,6 +30,7 @@ export const CartContextProvider = (props) => {
       value={{
         count: count,
         price: price,
+        // quatityHandler:quatityHandler,
         countHandler: countHandler,
         priceHandler: priceHandler,
       }}

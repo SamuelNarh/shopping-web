@@ -1,23 +1,40 @@
-import React, { useContext, useState } from "react";
+import React, { useContext} from "react";
 import Button from "../../UI/Button/Button";
 import AuthContext from "../../store/auth-context";
 
 const CartItem = (props) => {
   const ctx = useContext(AuthContext);
 
-  const [count, setCount] = useState(1);
-  const [price,setPrice] =useState(0)
 
   const increaseCountHandler = () => {
-    setCount(count + 1);
-    setPrice(count*price)
+    const IncreaseQty = JSON.stringify({
+      No_items_in_cart: props.qty + 1,
+      product_id: props.item.id,
+      user_id: Number(ctx.user_id),
+    });
+
+    const requestOptions = {
+      method: "PUT",
+      headers: new Headers({
+        Authorization: ctx.token_type + " " + ctx.accesstoken,
+        "Content-Type": "application/json",
+      }),
+      body: IncreaseQty,
+    };
+    fetch(`http://127.0.0.1:8000/cart/update/${props.cartid}`, requestOptions)
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw res;
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
   };
 
-  const decreaseCountHandler = () => {
-    if (count !== 1) {
-      setCount(count - 1);
-    }
-  };
+  const decreaseCountHandler = () => {};
 
   const removeFromCartHandler = () => {
     const requestOptions = {
@@ -63,7 +80,7 @@ const CartItem = (props) => {
                 ></path>
               </svg>
             </Button>
-            <label>{count}</label>
+            <label>{props.qty}</label>
             <Button onClick={increaseCountHandler}>
               <svg
                 fill="none"

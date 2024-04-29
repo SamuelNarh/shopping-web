@@ -196,9 +196,6 @@ const SignUp = () => {
           autoComplete="new-password"
         />
       </div>
-      <div className="flex-row">
-        <span className="span">Forgot password?</span>
-      </div>
       <Button className="button-submit">Sign Up</Button>
       <p className="p">
         Already have an account?

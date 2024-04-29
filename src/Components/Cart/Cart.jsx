@@ -10,7 +10,7 @@ const Cart = () => {
     const user_id = Number(localStorage.getItem("user-id"));
     const token_type = localStorage.getItem("token-type");
     const auth_token = localStorage.getItem("auth-token");
-  
+
     const requestOptions = {
       method: "GET",
       headers: {
@@ -27,6 +27,7 @@ const Cart = () => {
       })
       .then((data) => {
         setIsAddingToCart(data);
+        console.log(data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -43,6 +44,7 @@ const Cart = () => {
             key={item.cartlist.id}
             item={item.cartlist}
             cartid={item.id}
+            qty={item.No_items_in_cart}
           />
         ))}
         <div className="card checkout">

@@ -5,13 +5,15 @@ import CartContext from "../../../store/cart-context";
 
 const ProductItem = (props) => {
   const [added, setAdded] = useState("");
-  
-const cart = useContext(CartContext)
+  const [qty, setQty] = useState(1);
+
+  const cart = useContext(CartContext);
   const ctx = useContext(AuthContext);
   const addtoCartHandler = () => {
     const addtoCart = JSON.stringify({
       product_id: props.item.id,
       user_id: Number(ctx.user_id),
+      No_items_in_cart: qty,
     });
     const requestOptions = {
       method: "POST",
@@ -30,10 +32,10 @@ const cart = useContext(CartContext)
       })
       .then((data) => {
         setAdded("added");
-        cart.countHandler()
+        setQty('qty')
+        cart.countHandler();
         console.log(data);
         cart.priceHandler(data.cartlist.price);
-        console.log("added");
       })
       .catch((err) => console.log(err));
   };

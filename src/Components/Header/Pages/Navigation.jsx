@@ -5,7 +5,7 @@ import Logo from "../Components/Logo";
 
 const Navigation = () => {
   return (
-    <div className="flex flex-wrap justify-around bg-violet-50 drop-shadow-lg  ">
+    <div className="flex flex-wrap justify-around bg-violet-50 drop-shadow-lg ">
       <Logo />
       <Search />
       <div>

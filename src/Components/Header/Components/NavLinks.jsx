@@ -35,7 +35,7 @@ const NavLinks = () => {
                     strokeLinecap="round"
                   />
                 </svg>
-                <label>Home</label>
+                <label style={{ cursor: "pointer" }}>Home</label>
               </div>
             </Link>
             <Link to="">
@@ -76,7 +76,7 @@ const NavLinks = () => {
                     />
                   </g>
                 </svg>
-                <label> About Us</label>
+                <label style={{ cursor: "pointer" }}> About Us</label>
               </div>
             </Link>
             <Link to="/accounts/login">
@@ -94,12 +94,37 @@ const NavLinks = () => {
                     strokeLinecap="round"
                   ></path>
                 </svg>
-                <label>Account</label>
+                <label style={{ cursor: "pointer" }}>Account</label>
               </div>
             </Link>
           </>
         ) : (
           <>
+            <Link to="/">
+              <div className="flex items-center justify-center ">
+                <svg
+                  width="800px"
+                  height="800px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="w-10 h-9"
+                >
+                  <path
+                    d="M22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274"
+                    stroke="#1C274C"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                  <path
+                    d="M15 18H9"
+                    stroke="#1C274C"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <label style={{ cursor: "pointer" }}>Home</label>
+              </div>
+            </Link>
             <div className="flex items-center justify-center ">
               <svg
                 className="w-10 h-9"
@@ -114,7 +139,7 @@ const NavLinks = () => {
                   strokeLinecap="round"
                 ></path>
               </svg>
-              <label>{ctx.username}</label>
+              <label style={{ cursor: "pointer" }}>{ctx.username}</label>
             </div>
             <Link to="/user">
               <div className="flex items-center justify-center ">
@@ -150,7 +175,7 @@ const NavLinks = () => {
                     strokeWidth="1.5"
                   />
                 </svg>
-                <label>Cart</label>
+                <label style={{ cursor: "pointer" }}>Cart</label>
                 <sup>{cart.count}</sup>
               </div>
             </Link>

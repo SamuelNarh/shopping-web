@@ -7,6 +7,7 @@ const AuthContext = React.createContext({
   accesstoken: "",
   token_type: "",
   username: "",
+  user_id: 0,
   emailHandler: () => {},
   passwordHandler: () => {},
   onLogout: () => {},
@@ -58,6 +59,7 @@ export const AuthContextProvider = (props) => {
           throw res;
         })
         .then((data) => {
+          console.log(data);
           setAccestoken(data.access_token);
           setToken_type(data.token_type);
           setUser_id(data.user_id);
@@ -66,7 +68,11 @@ export const AuthContextProvider = (props) => {
           localStorage.setItem("token-type", data.token_type);
           localStorage.setItem("user-id", data.user_id);
           localStorage.setItem("username", data.username);
-          navigate("/");
+          if (data.email === "superadmin@gamil.com") {
+            navigate("/admin");
+          } else {
+            navigate("/");
+          }
         })
         .catch((err) => console.log(err))
         .finally(() => {

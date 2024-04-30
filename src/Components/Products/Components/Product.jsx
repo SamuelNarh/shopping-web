@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
-import './Product.css'
-
+import "./Product.css";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Product = () => {
   const [Items, setItems] = useState([]);
@@ -18,13 +18,19 @@ const Product = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const fetchMoreData=()=>{
+    
+  }
+
   return (
     <>
-      <div className=" box flex justify-center gap-3 pt-12 flex-wrap">
-        {Items.map((item) => (
-          <ProductItem key={item.id} item={item} />
-        ))}
-      </div>
+      <InfiniteScroll dataLength={Items.length} next={fetchMoreData} >
+        <div className=" box flex justify-center gap-3 pt-12 flex-wrap">
+          {Items.map((item) => (
+            <ProductItem key={item.id} item={item} />
+          ))}
+        </div>
+      </InfiniteScroll>
     </>
   );
 };

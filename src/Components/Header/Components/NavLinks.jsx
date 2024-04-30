@@ -38,7 +38,7 @@ const NavLinks = () => {
                 <label style={{ cursor: "pointer" }}>Home</label>
               </div>
             </Link>
-            <Link to="">
+            <Link to="/aboutus">
               <div className="flex items-center justify-center ">
                 <svg
                   fill="#fffff"

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
 import "./Product.css";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { Loader } from "../../Loader/Loader";
 import Button from "../../../UI/Button/Button";
 
 const Product = () => {
   const [Items, setItems] = useState([]);
-  const [hasMore, setHasMore] = useState(true);
   const [seemore, setSeeMore] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch("http://127.0.0.1:8000/product/all")
       .then((res) => {
         if (res.ok) {
@@ -19,11 +19,14 @@ const Product = () => {
         throw res;
       })
       .then((data) => {
-        if (data.length <= 15) {
+        const dataLength = data.length;
+        console.log(dataLength);
+        setLoading(false);
+        if (dataLength <= 10) {
           setItems(data);
         } else {
           // This is to handle the case when there are more than 10 products in the database.
-          setItems(data.slice(0, 4));
+          setItems(data.slice(0, 8));
           setSeeMore(true);
         }
       })
@@ -31,7 +34,8 @@ const Product = () => {
   }, []);
 
   const fetchMoreData = () => {
-    if (Items.length > 15 && Items.length <= 30) {
+    if (Items.length <= 8) {
+      setLoading(true);
       fetch("http://127.0.0.1:8000/product/all")
         .then((res) => {
           if (res.ok) {
@@ -40,37 +44,26 @@ const Product = () => {
           throw res;
         })
         .then((data) => {
-          // setTimeout(() => {
-          //   setItems(Items.concat(data.slice(8, 20)));
-          // }, 800);
+          setLoading(false)
+          setItems(Items.concat(data.slice(8, 16)));
         })
         .catch((err) => console.log(err));
     } else {
-      setHasMore(false);
     }
   };
 
   const seemoreHandler = () => {
-    console.log("clicked");
+    fetchMoreData();
   };
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <>
-      <div id="Scrolldiv" style={{ height: 400, overflow: "auto" }}>
-        <InfiniteScroll
-          dataLength={Items.length}
-          next={fetchMoreData}
-          hasMore={hasMore}
-          loader={<Loader />}
-          endMessage={<p>Everything is Finish Adogo</p>}
-          scrollableTarget={"Scrolldiv"}
-        >
-          <div className=" box flex justify-center gap-3 pt-12 flex-wrap">
-            {Items.map((item) => (
-              <ProductItem key={item.id} item={item} />
-            ))}
-          </div>
-        </InfiniteScroll>
+      <div className=" box flex justify-center gap-3 pt-12 flex-wrap">
+        {Items.map((item) => (
+          <ProductItem key={item.id} item={item} />
+        ))}
       </div>
       {seemore && <Button onClick={seemoreHandler}>See more</Button>}
     </>

@@ -1,7 +1,7 @@
 import React from "react";
 import Navigation from "../Components/Header/Pages/Navigation";
 import Product from "../Components/Products/Components/Product";
-import Footer from "../Components/Footer/Footer";
+// import Footer from "../Components/Footer/Footer";
 import { AuthContextProvider } from "../store/auth-context";
 import { CartContextProvider } from "../store/cart-context";
 import Slideshow from "../Components/Slideshow/Slideshow";
@@ -13,7 +13,7 @@ const Home = () => {
         <Navigation />
         <Slideshow />
         <Product />
-        <Footer />
+        {/* <Footer /> */}
       </CartContextProvider>
     </AuthContextProvider>
   );

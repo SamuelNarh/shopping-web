@@ -1,7 +1,3 @@
-.box {
-  padding-bottom: 100px;
-}
-
 .cardx {
   width: 300px;
   padding: 0.8em;
@@ -44,7 +40,6 @@ svg {
   font-weight: 900;
   font-size: 1.2em;
   line-height: 1.5;
-  color: rgb(61, 138, 61);
 }
 
 .amount {
@@ -55,11 +50,13 @@ svg {
 }
 
 .text-body {
-  font-size: 0.9em;
+  font-size: 0.8em;
   padding-bottom: 10px;
+  overflow: auto;
+  text-overflow: ellipsis;
+  height: 56px;
 }
 
-/*Button*/
 .card-button {
   border: 1px solid #252525;
   display: flex;
@@ -69,7 +66,6 @@ svg {
   transition: 0.3s ease-in-out;
 }
 
-/*Hover*/
 .card-img:hover {
   transform: translateY(-25%);
   box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px,
@@ -81,6 +77,42 @@ svg {
   background-color: #ffcaa6;
 }
 
-/* .added{
- pointer-events: none;
-} */
+.seemore {
+  margin: 10px;
+  background: rgba(0, 0, 0, 0.24);
+  color: rgb(248, 248, 248);
+}
+
+@media (max-width: 600px) {
+  .cardx {
+    width: 150px;
+  }
+  .card-img {
+    object-fit: contain;
+    width: 100%;
+    transition: 0.3s ease;
+  }
+  .image {
+    height: 100px;
+    object-fit: contain;
+  }
+
+  .card-info {
+    padding-top: 1%;
+  }
+
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .card-footer {
+    padding-top: 3px;
+  }
+  .text-title {
+    font-weight: 900;
+    font-size: 1em;
+    line-height: 1.2;
+    color: rgb(0, 0, 0);
+  }
+}

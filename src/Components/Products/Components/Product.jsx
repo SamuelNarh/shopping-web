@@ -34,8 +34,8 @@ const Product = () => {
   }, []);
 
   const fetchMoreData = () => {
+    console.log(Items.length);
     if (Items.length <= 8) {
-      setLoading(true);
       fetch("http://127.0.0.1:8000/product/all")
         .then((res) => {
           if (res.ok) {
@@ -44,11 +44,23 @@ const Product = () => {
           throw res;
         })
         .then((data) => {
-          setLoading(false)
+          setLoading(false);
           setItems(Items.concat(data.slice(8, 16)));
         })
         .catch((err) => console.log(err));
-    } else {
+    } else if (Items.length <= 16) {
+      fetch("http://127.0.0.1:8000/product/all")
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          }
+          throw res;
+        })
+        .then((data) => {
+          setLoading(false);
+          setItems(Items.concat(data.slice(16, 25)));
+        })
+        .catch((err) => console.log(err));
     }
   };
 
@@ -60,12 +72,16 @@ const Product = () => {
     <Loader />
   ) : (
     <>
-      <div className=" box flex justify-center gap-3 pt-12 flex-wrap">
+      <div className="flex justify-center gap-3 pt-12 flex-wrap">
         {Items.map((item) => (
           <ProductItem key={item.id} item={item} />
         ))}
       </div>
-      {seemore && <Button onClick={seemoreHandler}>See more</Button>}
+      {seemore && (
+        <div className="seemore flex justify-center">
+          <Button onClick={seemoreHandler}>See more</Button>
+        </div>
+      )}
     </>
   );
 };

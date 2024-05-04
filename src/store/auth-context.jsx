@@ -59,7 +59,6 @@ export const AuthContextProvider = (props) => {
           throw res;
         })
         .then((data) => {
-          console.log(data);
           setAccestoken(data.access_token);
           setToken_type(data.token_type);
           setUser_id(data.user_id);

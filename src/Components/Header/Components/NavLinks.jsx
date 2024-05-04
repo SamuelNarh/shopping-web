@@ -20,7 +20,7 @@ const NavLinks = () => {
                   height="800px"
                   viewBox="0 0 24 24"
                   fill="none"
-                  className="w-10 h-9"
+                  className="w-10 h-9 svg"
                 >
                   <path
                     d="M22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274"
@@ -35,8 +35,24 @@ const NavLinks = () => {
                     strokeLinecap="round"
                   />
                 </svg>
-                <label style={{ cursor: "pointer" }}>Home</label>
               </div>
+            </Link>
+            <Link to="">
+              <svg
+                width="800px"
+                height="800px"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="w-10 h-9  svg"
+              >
+                <path
+                  d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                  stroke="#000000"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </Link>
             <Link to="/aboutus">
               <div className="flex items-center justify-center ">
@@ -47,7 +63,7 @@ const NavLinks = () => {
                   version="1.1"
                   id="Capa_1"
                   viewBox="0 0 502.643 502.643"
-                  className="w-10 h-9"
+                  className="w-10 h-9 svg"
                 >
                   <g>
                     <path
@@ -76,13 +92,12 @@ const NavLinks = () => {
                     />
                   </g>
                 </svg>
-                <label style={{ cursor: "pointer" }}> About Us</label>
               </div>
             </Link>
             <Link to="/accounts/login">
               <div className="flex items-center justify-center ">
                 <svg
-                  className="w-10 h-9"
+                  className="w-10 h-9 svg"
                   stroke="currentColor"
                   strokeWidth="1.0"
                   viewBox="0 0 24 24"
@@ -94,7 +109,6 @@ const NavLinks = () => {
                     strokeLinecap="round"
                   ></path>
                 </svg>
-                <label style={{ cursor: "pointer" }}>Account</label>
               </div>
             </Link>
           </>
@@ -107,7 +121,7 @@ const NavLinks = () => {
                   height="800px"
                   viewBox="0 0 24 24"
                   fill="none"
-                  className="w-10 h-9"
+                  className="w-10 h-9 svg"
                 >
                   <path
                     d="M22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274"
@@ -122,8 +136,24 @@ const NavLinks = () => {
                     strokeLinecap="round"
                   />
                 </svg>
-                <label style={{ cursor: "pointer" }}>Home</label>
               </div>
+            </Link>
+            <Link to="">
+              <svg
+                width="800px"
+                height="800px"
+                viewBox="0 0 24 24"
+                fill="none"
+                className="w-10 h-9 svg"
+              >
+                <path
+                  d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                  stroke="#000000"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </Link>
             <div className="flex items-center justify-center ">
               <svg
@@ -139,7 +169,7 @@ const NavLinks = () => {
                   strokeLinecap="round"
                 ></path>
               </svg>
-              <label style={{ cursor: "pointer" }}>{ctx.username}</label>
+              <label className="username">{ctx.username}</label>
             </div>
             <Link to="/user">
               <div className="flex items-center justify-center ">
@@ -149,7 +179,7 @@ const NavLinks = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-10 h-9"
+                  className="w-10 h-9 svg"
                 >
                   <path
                     d="M2 3L2.26491 3.0883C3.58495 3.52832 4.24497 3.74832 4.62248 4.2721C5 4.79587 5 5.49159 5 6.88304V9.5C5 12.3284 5 13.7426 5.87868 14.6213C6.75736 15.5 8.17157 15.5 11 15.5H19"
@@ -175,11 +205,12 @@ const NavLinks = () => {
                     strokeWidth="1.5"
                   />
                 </svg>
-                <label style={{ cursor: "pointer" }}>Cart</label>
                 <sup>{cart.count}</sup>
               </div>
             </Link>
-            <Button onClick={ctx.onLogout}>Logout</Button>
+            <Button className="linkbtn" onClick={ctx.onLogout}>
+              Logout
+            </Button>
           </>
         )}
       </ul>

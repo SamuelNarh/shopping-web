@@ -1,12 +1,15 @@
-import React, { useContext} from "react";
+import React, { useContext, useState } from "react";
 import Button from "../../UI/Button/Button";
 import AuthContext from "../../store/auth-context";
 
 const CartItem = (props) => {
   const ctx = useContext(AuthContext);
-
+  const [quantity, setQuantity] = useState(props.qty);
+  const [price, setPrice] = useState(props.item.price);
 
   const increaseCountHandler = () => {
+    setQuantity(quantity + 1);
+    setPrice(quantity * price);
     const IncreaseQty = JSON.stringify({
       No_items_in_cart: props.qty + 1,
       product_id: props.item.id,
@@ -80,7 +83,7 @@ const CartItem = (props) => {
                 ></path>
               </svg>
             </Button>
-            <label>{props.qty}</label>
+            <label>{quantity}</label>
             <Button onClick={increaseCountHandler}>
               <svg
                 fill="none"
@@ -109,7 +112,7 @@ const CartItem = (props) => {
                 strokeLinejoin="round"
               />
             </svg>
-            {props.item.price}
+            {price}
           </label>
         </div>
       </div>

@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import Button from "../../UI/Button/Button";
 import AuthContext from "../../store/auth-context";
 
-
 const ProductInput = () => {
   const [image, setImage] = useState("");
   const [title, setTitle] = useState("");
@@ -57,9 +56,7 @@ const ProductInput = () => {
           }
           throw res;
         })
-        .then((data) => {
-          console.log(data);
-        })
+        .then(() => {})
         .catch((err) => {
           console.log(err);
         });
@@ -68,7 +65,7 @@ const ProductInput = () => {
   const imageHandler = (event) => {
     // const file = event.target.files[0];
     setImage(event.target.files[0]);
-    
+
     // setImage(URL.createObjectURL(file));
     // console.log(URL.createObjectURL(file));
     console.log(event.target.files[0].name);

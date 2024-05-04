@@ -1,7 +1,20 @@
 .ul {
   list-style: none;
   color: rgb(2, 2, 4);
-  gap: 34px;
+  gap: 10px;
   display: flex;
 
+}
+
+@media (max-width:600px) {
+  .svg{
+    width: 28px;
+    height: 28px;
+  }
+.linkbtn{
+  font-size: 12px;
+}
+.username{
+  font-size: 12px;
+}
 }

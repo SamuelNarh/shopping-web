@@ -1,16 +1,16 @@
 import React from "react";
-import NavLinks from "../Components/NavLinks";
-import Logo from "../Components/Logo";
-import './Navigation.css'
 
+import Logo from "../Components/Logo";
+import "./Navigation.css";
+import { Toggler } from "../../Toggler/Toggler";
+import { Deals } from "../Components/Deals";
 
 const Navigation = () => {
   return (
     <div className="Navbar flex flex-wrap bg-violet-50 drop-shadow-lg ">
       <Logo />
-      <div>
-        <NavLinks />
-      </div>
+      <Deals />
+      <Toggler />
     </div>
   );
 };

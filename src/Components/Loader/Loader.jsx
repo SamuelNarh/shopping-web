@@ -1,8 +1,9 @@
 import React from "react";
+import './Loader.css'
 
 export const Loader = () => {
   return (
-    <div className="flex-col gap-4 w-full flex items-center justify-center pt-11">
+    <div className=" load flex-col gap-4 w-full flex items-center justify-center pt-11">
       <div className="w-20 h-20 border-8 text-blue-400 text-4xl animate-spin border-gray-300 flex items-center justify-center border-t-blue-400 rounded-full">
         <svg
           viewBox="0 0 24 24"

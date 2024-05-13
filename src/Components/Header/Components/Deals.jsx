@@ -9,8 +9,9 @@ export const Deals = () => {
         <li className="deals-li"> Daily Deals</li>
       </Link>
       <li className="deals-li">Free Gifts</li>
-      <li className="deals-li">Products</li>
-      <li className="deals-li">Support</li>
+      <Link to="/support">
+        <li className="deals-li">Support</li>
+      </Link>
     </ul>
   );
 };

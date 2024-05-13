@@ -67,7 +67,7 @@ export const AuthContextProvider = (props) => {
           localStorage.setItem("token-type", data.token_type);
           localStorage.setItem("user-id", data.user_id);
           localStorage.setItem("username", data.username);
-          if (data.email === "superadmin@gamil.com") {
+          if (data.email === "superadmin@gmail.com") {
             navigate("/admin");
           } else {
             navigate("/");

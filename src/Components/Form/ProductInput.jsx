@@ -92,7 +92,6 @@ const ProductInput = () => {
           id="picture"
           onChange={imageHandler}
         />
-        {image && <img src={image} alt="product-img" className="product-img" />}
         <div className="flex-column">
           <label className="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
             Title

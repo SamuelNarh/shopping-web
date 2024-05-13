@@ -6,6 +6,7 @@ import SignupPage from "./Pages/SignupPage";
 import User from "./Pages/User";
 import Admin from "./Pages/Admin";
 import AboutUs from "./Pages/AboutsUs";
+import Support from "./Pages/Support";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/user" element={<User />}></Route>
         <Route path="/admin" element={<Admin />}></Route>
         <Route path="/aboutus" element={<AboutUs />}></Route>
+        <Route path="/support" element={<Support />}></Route>
         {/* default redirect to home page */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

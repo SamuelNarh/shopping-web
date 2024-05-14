@@ -20,7 +20,6 @@ const Product = () => {
       })
       .then((data) => {
         const dataLength = data.length;
-        console.log(dataLength);
         setLoading(false);
         if (dataLength <= 10) {
           setItems(data);

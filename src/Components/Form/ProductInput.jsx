@@ -59,16 +59,18 @@ const ProductInput = () => {
         .then(() => {})
         .catch((err) => {
           console.log(err);
+        })
+        .finally(() => {
+          setImage("");
+          setPrice("");
+          setTitle("");
+          setDescription("");
         });
     };
   };
   const imageHandler = (event) => {
     // const file = event.target.files[0];
     setImage(event.target.files[0]);
-
-    // setImage(URL.createObjectURL(file));
-    // console.log(URL.createObjectURL(file));
-    console.log(event.target.files[0].name);
   };
   const titleHandler = (event) => {
     setTitle(event.target.value);

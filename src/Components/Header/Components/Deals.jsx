@@ -8,7 +8,6 @@ export const Deals = () => {
       <Link to="/">
         <li className="deals-li"> Daily Deals</li>
       </Link>
-      <li className="deals-li">Free Gifts</li>
       <Link to="/support">
         <li className="deals-li">Support</li>
       </Link>

@@ -9,7 +9,11 @@
   position:fixed;
   bottom: 0;
   width: 100%;
-  height: 100px;
+  height: 70px;
+  justify-content: space-between;
+}
+.footer-item{
+  gap: 10px;
 }
 
 /* for all social containers*/
@@ -55,6 +59,13 @@
 
 .socialContainer:hover .socialSvg {
   animation: slide-in-top 0.3s both;
+}
+
+.datetime{
+  display: flex;
+  color: white;
+  font-size: 15
+  px;
 }
 
 @keyframes slide-in-top {

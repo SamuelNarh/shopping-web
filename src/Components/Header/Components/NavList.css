@@ -3,18 +3,23 @@
   color: rgb(2, 2, 4);
   gap: 25px;
   display: flex;
-
+}
+.select:hover {
+  cursor: pointer;
+  background: rgba(183, 177, 183, 0.933);
+  border-radius: 10px;
+  user-select: none;
 }
 
-@media (max-width:600px) {
-  .svg{
+@media (max-width: 600px) {
+  .svg {
     width: 28px;
     height: 28px;
   }
-.linkbtn{
-  font-size: 12px;
-}
-.username{
-  font-size: 12px;
-}
+  .linkbtn {
+    font-size: 12px;
+  }
+  .username {
+    font-size: 12px;
+  }
 }

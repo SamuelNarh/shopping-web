@@ -6,6 +6,7 @@ const CartContext = React.createContext({
   price: 0,
   // quatityHandler:()=>{},
   countHandler: () => {},
+  decreaseCountHaandler: () => {},
   priceHandler: () => {},
 });
 
@@ -13,26 +14,29 @@ export const CartContextProvider = (props) => {
   const [count, setCount] = useState(0);
   const [price, setprice] = useState(0);
 
-  useEffect(()=>{
+  useEffect(() => {
     const count = localStorage.getItem("count");
-    setCount(count)
-  },[])
+    setCount(Number(count));
+  }, []);
 
-  // const quatityHandler=(event)=>{
-  // }
+  const priceHandler = (e) => setprice();
+  const countHandler = () => {
+    localStorage.setItem("count", count + 1);
+    setCount(count + 1);
+  };
 
-  const priceHandler = (event) => setprice();
-  const countHandler = () =>{
-    localStorage.setItem("count",count +1)
-     setCount(count + 1)};
+  const decreaseCountHaandler = () => {
+    localStorage.setItem("count", count - 1);
+    setCount(count - 1);
+  };
   return (
     <CartContext.Provider
       value={{
         count: count,
         price: price,
-        // quatityHandler:quatityHandler,
         countHandler: countHandler,
         priceHandler: priceHandler,
+        decreaseCountHaandler: decreaseCountHaandler,
       }}
     >
       {props.children}

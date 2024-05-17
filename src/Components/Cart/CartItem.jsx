@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
 import Button from "../../UI/Button/Button";
 import AuthContext from "../../store/auth-context";
+import CartContext from "../../store/cart-context";
 
 const CartItem = (props) => {
   const ctx = useContext(AuthContext);
+  const cart = useContext(CartContext);
   const [quantity, setQuantity] = useState(props.qty);
   const [price, setPrice] = useState(props.item.price);
 
@@ -53,7 +55,10 @@ const CartItem = (props) => {
         }
         throw res;
       })
-      .then(() => window.location.reload())
+      .then(() => {
+        window.location.reload();
+        cart.decreaseCountHaandler();
+      })
       .catch((err) => console.log(err));
   };
   return (

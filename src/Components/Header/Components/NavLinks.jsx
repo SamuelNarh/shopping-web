@@ -12,7 +12,7 @@ const NavLinks = () => {
   const [dropdown, setDropdown] = useState(false);
 
   const DropdownHandler = () => {
-    setDropdown(true);
+    dropdown ? setDropdown(false) : setDropdown(true);
   };
   const DropdownClose = () => {
     setDropdown(false);
@@ -83,7 +83,7 @@ const NavLinks = () => {
                 </div>
               </Link>
               <div
-                className="flex items-center justify-center pointer "
+                className="flex items-center justify-center select"
                 onClick={DropdownHandler}
               >
                 <svg
@@ -99,7 +99,7 @@ const NavLinks = () => {
                     strokeLinecap="round"
                   ></path>
                 </svg>
-                <label className="username">{ctx.username}</label>
+                <label className="username select">{ctx.username}</label>
                 <svg
                   width="800px"
                   height="800px"
@@ -120,9 +120,11 @@ const NavLinks = () => {
           )}
         </ul>
       </div>
-      {dropdown && (
-        <Dropdown onLogout={ctx.onLogout} closedropDown={DropdownClose} />
-      )}
+      <div>
+        {dropdown && (
+          <Dropdown onLogout={ctx.onLogout} closedropDown={DropdownClose} />
+        )}
+      </div>
     </>
   );
 };

@@ -27,14 +27,8 @@ export const AuthContextProvider = (props) => {
     setToken_type(localStorage.getItem("token-type"));
     setUsername(localStorage.getItem("username"));
     setUser_id(localStorage.getItem("user-id"));
+    console.log("RUNING")
   }, []);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     localStorage.clear();
-  //     window.location.reload();
-  //   }, 20000);
-  // }, []);
 
   const navigate = useNavigate();
 
@@ -90,7 +84,10 @@ export const AuthContextProvider = (props) => {
   };
 
   const onLogout = () => {
-    localStorage.clear();
+    localStorage.removeItem("auth-token");
+    localStorage.removeItem("token-type");
+    localStorage.removeItem("username");
+    localStorage.removeItem("user-id");
     setAccestoken("");
     setToken_type("");
     setUsername("");

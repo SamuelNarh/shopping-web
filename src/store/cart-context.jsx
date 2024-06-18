@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const CartContext = React.createContext({
   count: 0,
   price: 0,
-  // quatityHandler:()=>{},
   countHandler: () => {},
   decreaseCountHaandler: () => {},
   priceHandler: () => {},
@@ -12,14 +10,22 @@ const CartContext = React.createContext({
 
 export const CartContextProvider = (props) => {
   const [count, setCount] = useState(0);
-  const [price, setprice] = useState(0);
+  const [price, setPrice] = useState(0);
 
   useEffect(() => {
     const count = localStorage.getItem("count");
+    const price = localStorage.getItem("price");
+    setPrice(Number(price));
     setCount(Number(count));
   }, []);
 
-  const priceHandler = (e) => setprice();
+  const priceHandler = (event) => {
+    setPrice( price + event);
+    localStorage.setItem("price", price);
+    console.log("straight from event:",event)
+    console.log("price:",price);
+    return price
+  };
   const countHandler = () => {
     localStorage.setItem("count", count + 1);
     setCount(count + 1);

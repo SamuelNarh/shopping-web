@@ -3,13 +3,16 @@ import Navigation from "../Components/Header/Pages/Navigation";
 import Cart from "../Components/Cart/Cart";
 import { AuthContextProvider } from "../store/auth-context";
 import { CartContextProvider } from "../store/cart-context";
+import { AlertContextProvider } from "../store/alert-context";
 
 const User = () => {
   return (
     <AuthContextProvider>
       <CartContextProvider>
-        <Navigation></Navigation>
-        <Cart />
+        <AlertContextProvider>
+          <Navigation></Navigation>
+          <Cart />
+        </AlertContextProvider>
       </CartContextProvider>
     </AuthContextProvider>
   );

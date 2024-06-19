@@ -56,10 +56,6 @@
   outline: none;
 }
 
-.inputForm:focus-within {
-  border: 1.5px solid #2d79f3;
-}
-
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -80,36 +76,6 @@
   color: white;
   font-weight: 500;
   cursor: pointer;
-}
-
-.button-submit {
-  position: relative;
-  display: inline-block;
-  padding: 15px 30px;
-  text-align: center;
-  letter-spacing: 1px;
-  text-decoration: none;
-  background: transparent;
-  transition: ease-out 0.5s;
-  border: 2px solid;
-  border-radius: 10em;
-  box-shadow: inset 0 0 0 0 rgb(0, 110, 255);
-  margin: 20px 0 10px 0;
-  color: white;
-  font-size: 15px;
-  font-weight: 500;
-  height: 50px;
-  width: 100%;
-  cursor: pointer;
-}
-
-.button-submit:hover {
-  color: white;
-  box-shadow: inset 0 -100px 0 0 rgb(4, 22, 52);
-}
-
-.button-submit:active {
-  transform: scale(0.9);
 }
 
 .p {

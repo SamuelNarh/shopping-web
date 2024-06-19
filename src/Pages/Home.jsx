@@ -5,20 +5,19 @@ import Footer from "../Components/Footer/Footer";
 import Slideshow from "../Components/Slideshow/Slideshow";
 import { AuthContextProvider } from "../store/auth-context";
 import { CartContextProvider } from "../store/cart-context";
-import { AlertContextProvider } from "../store/alert-context";
-
+import { AlertProvider } from "../store/alert-context";
 
 const Home = () => {
   return (
     <>
       <AuthContextProvider>
         <CartContextProvider>
-          <AlertContextProvider>
+          <AlertProvider>
             <Navigation />
             <Slideshow />
             <Product />
             <Footer />
-          </AlertContextProvider>
+          </AlertProvider>
         </CartContextProvider>
       </AuthContextProvider>
     </>

@@ -2,13 +2,14 @@ import React, { useContext, useState } from "react";
 import Button from "../../UI/Button/Button";
 import AuthContext from "../../store/auth-context";
 import CartContext from "../../store/cart-context";
-import { Alert } from "../Alert/Alert";
 import AlertContext from "../../store/alert-context";
+import { Alert } from "../Alert/Alert";
+
 
 const CartItem = (props) => {
   const ctx = useContext(AuthContext);
   const cart = useContext(CartContext);
-  const alert = useContext(AlertContext);
+  const alert = useContext (AlertContext)
   const [quantity, setQuantity] = useState(props.qty);
   const [price, setPrice] = useState(props.item.price);
 
@@ -58,9 +59,9 @@ const CartItem = (props) => {
         }
         throw res;
       })
-      .then(() => {
-        alert.activitateAlertHandler()
-        window.location.reload();
+      .then((data) => {
+        alert.openAlertHandler()
+        props.cartupdate(data)
         cart.decreaseCountHaandler();
       })
       .catch((err) => console.log(err));
@@ -156,7 +157,13 @@ const CartItem = (props) => {
           </span>
         </div>
       </div>
-      {alert.alert && <Alert message="Product deleted" close={alert.alertCloseHandler}></Alert>}
+      {alert.alert && (
+        <Alert
+          message="item removed !!!"
+          error ={alert.alert}
+          close={alert.closeAlertHandler}
+        ></Alert>
+      )}
     </>
   );
 };

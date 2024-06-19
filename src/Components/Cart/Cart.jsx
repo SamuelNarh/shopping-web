@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import "./Cart.css";
 import CartItem from "./CartItem";
 import { CartTotal } from "./CartTotal";
+import { Loader } from "../Loader/Loader";
 
 const Cart = () => {
   const [isAddingToCart, setIsAddingToCart] = useState([]);
+  const [Load, setLoad] = useState(false);
 
   // // Fetch data from server when the component is mounted
   useEffect(() => {
+    setLoad(true);
     const user_id = Number(localStorage.getItem("user-id"));
     const token_type = localStorage.getItem("token-type");
     const auth_token = localStorage.getItem("auth-token");
@@ -28,25 +31,33 @@ const Cart = () => {
       })
       .then((data) => {
         setIsAddingToCart(data);
-        console.log(data);
+        setLoad(false);
       })
       .catch((err) => console.log(err));
   }, []);
 
+  const cartupdate = (event) => {
+    setIsAddingToCart(event);
+  };
+
   return (
     <>
       <div className="master-container flex justify-center pt-6">
-        <label className="title">Your cart</label>
-        {isAddingToCart.map((item) => (
-          <CartItem
-            key={item.cartlist.id}
-            item={item.cartlist}
-            cartid={item.id}
-            qty={item.No_items_in_cart}
-          />
-        ))}
+        <div>
+          <label className="title">Your cart</label>
+          {Load && <Loader />}
+          {isAddingToCart.map((item) => (
+            <CartItem
+              key={item.cartlist.id}
+              item={item.cartlist}
+              cartid={item.id}
+              qty={item.No_items_in_cart}
+              cartupdate={cartupdate}
+            />
+          ))}
+        </div>
+        {isAddingToCart && <CartTotal></CartTotal>}
       </div>
-      {isAddingToCart && <CartTotal></CartTotal>}
     </>
   );
 };

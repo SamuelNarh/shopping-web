@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Form.css";
 import Button from "../../UI/Button/Button";
 import AuthContext from "../../store/auth-context";
+import { Alert } from "../Alert/Alert";
 
 const SignIn = () => {
   const ctx = useContext(AuthContext);
@@ -66,6 +67,13 @@ const SignIn = () => {
         </p>
         <div className="flex-row"></div>
       </form>
+      {ctx.notUser && (
+        <Alert
+          close={ctx.PromptHandler}
+          error={ctx.notUser}
+          message="User not Found !!!"
+        />
+      )}
     </>
   );
 };

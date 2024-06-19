@@ -8,7 +8,7 @@ export const Alert = (props) => {
     }, 5000);
   }
   return (
-    <div className="alert" onClick={props.close}>
+    <div className={props.error? "error":"success"} onClick={props.close}>
       <span className="closebtn" onClick={props.close}>
         &times;
       </span>

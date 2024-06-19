@@ -5,13 +5,14 @@ import CartContext from "../../../store/cart-context";
 import { Alert } from "../../Alert/Alert";
 import AlertContext from "../../../store/alert-context";
 
+
 const ProductItem = (props) => {
   const [added, setAdded] = useState("");
   const [qty, setQty] = useState(1);
 
   const cart = useContext(CartContext);
   const ctx = useContext(AuthContext);
-  const alert_context = useContext(AlertContext);
+  const alert = useContext (AlertContext)
   const addtoCartHandler = () => {
     const addtoCart = JSON.stringify({
       product_id: props.item.id,
@@ -38,7 +39,8 @@ const ProductItem = (props) => {
         setQty("qty");
         cart.countHandler();
         cart.priceHandler(data.cartlist.price);
-        alert_context.activitateAlertHandler();
+        alert.openAlertHandler()
+        console.log(data)
       })
       .catch((err) => console.log(err));
   };
@@ -79,10 +81,10 @@ const ProductItem = (props) => {
           </div>
         </div>
       </div>
-      {alert_context.alert && (
+      {alert.alert && (
         <Alert
-          message={`${props.item.title} added !!!`}
-          close={alert_context.alertCloseHandler}
+          message={`added to cart !!!`}
+          close={alert.closeAlertHandler}
           alert={alert}
         />
       )}

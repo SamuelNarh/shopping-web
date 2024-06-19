@@ -1,10 +1,11 @@
 import React from "react";
 import "./Search.css";
+import Button from "../../../UI/Button/Button";
 
 export const Search = () => {
   return (
     <div className="input-wrapper">
-      <button className="icon">
+      <Button className="icon">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -27,7 +28,7 @@ export const Search = () => {
             d="M22 22L20 20"
           ></path>
         </svg>
-      </button>
+      </Button>
       <input placeholder="search.." className="input" name="text" type="text" />
     </div>
   );

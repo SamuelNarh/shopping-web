@@ -1,28 +1,26 @@
 import React, { useState } from "react";
 
 const AlertContext = React.createContext({
-  alert: false,
-  alertCloseHandler: () => {},
-  activitateAlertHandler: () => {},
+  openAlertHandler: () => {},
+  closeAlertHandler: () => {},
 });
 
-export const AlertContextProvider = (props) => {
-  const [alert, setAlert] = useState(false);
+export const AlertProvider = (props) => {
+  const [alert, setalert] = useState(false);
 
-  const alertCloseHandler = () => {
-    setAlert(false);
+  const openAlertHandler = () => {
+    setalert(true);
   };
 
-  const activitateAlertHandler = () => {
-    setAlert(true);
+  const closeAlertHandler = () => {
+    setalert(false);
   };
-
   return (
     <AlertContext.Provider
       value={{
+        openAlertHandler: openAlertHandler,
+        closeAlertHandler: closeAlertHandler,
         alert: alert,
-        alertCloseHandler: alertCloseHandler,
-        activitateAlertHandler: activitateAlertHandler,
       }}
     >
       {props.children}

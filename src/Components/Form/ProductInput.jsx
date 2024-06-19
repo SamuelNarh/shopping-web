@@ -61,10 +61,11 @@ const ProductInput = () => {
           console.log(err);
         })
         .finally(() => {
-          setImage("");
-          setPrice("");
-          setTitle("");
+          // reset form
+          setImage(null);
           setDescription("");
+          setPrice(0);
+          setTitle("");
         });
     };
   };

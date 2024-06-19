@@ -4,6 +4,7 @@ import "./Product.css";
 import { Loader } from "../../Loader/Loader";
 import Button from "../../../UI/Button/Button";
 
+
 const Product = () => {
   const [Items, setItems] = useState([]);
   const [seemore, setSeeMore] = useState(false);
@@ -29,7 +30,14 @@ const Product = () => {
           setSeeMore(true);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        //Handle auto reload when can't fetch data from database
+        setTimeout(() => {
+          window.location.reload();
+          console.log(err);
+          console.log("runing")
+        }, 5000);
+      });
   }, []);
 
   const fetchMoreData = () => {

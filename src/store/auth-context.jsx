@@ -12,6 +12,7 @@ const AuthContext = React.createContext({
   passwordHandler: () => {},
   onLogout: () => {},
   signinHandler: () => {},
+  PromptHandler: () => {},
 });
 
 export const AuthContextProvider = (props) => {
@@ -21,13 +22,13 @@ export const AuthContextProvider = (props) => {
   const [token_type, setToken_type] = useState("");
   const [user_id, setUser_id] = useState(0);
   const [username, setUsername] = useState("");
+  const [notUser, setnotUser] = useState(false);
 
   useEffect(() => {
     setAccestoken(localStorage.getItem("auth-token"));
     setToken_type(localStorage.getItem("token-type"));
     setUsername(localStorage.getItem("username"));
     setUser_id(localStorage.getItem("user-id"));
-    console.log("RUNING")
   }, []);
 
   const navigate = useNavigate();
@@ -67,7 +68,7 @@ export const AuthContextProvider = (props) => {
             navigate("/");
           }
         })
-        .catch((err) => console.log(err))
+        .catch(() => setnotUser(true))
         .finally(() => {
           setEmail("");
           setPassword("");
@@ -81,6 +82,10 @@ export const AuthContextProvider = (props) => {
 
   const passwordHandler = (event) => {
     setPassword(event.target.value);
+  };
+
+  const PromptHandler = () => {
+    setnotUser(false);
   };
 
   const onLogout = () => {
@@ -109,6 +114,8 @@ export const AuthContextProvider = (props) => {
         passwordHandler: passwordHandler,
         signinHandler: signinHandler,
         onLogout: onLogout,
+        notUser: notUser,
+        PromptHandler: PromptHandler,
       }}
     >
       {props.children}

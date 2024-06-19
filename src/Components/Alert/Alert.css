@@ -1,4 +1,4 @@
-.alert {
+.success {
   top: 0;
   padding: 20px;
   background-color: #18761b;
@@ -8,6 +8,15 @@
   animation: fadeOut 5s linear forwards;
 }
 
+.error {
+  top: 0;
+  padding: 20px;
+  background-color: #b70b0b;
+  color: white;
+  position: fixed;
+  width: 100%;
+  animation: fadeOut 5s linear forwards;
+}
 .closebtn {
   margin-left: 15px;
   color: white;

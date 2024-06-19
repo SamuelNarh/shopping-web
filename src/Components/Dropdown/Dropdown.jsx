@@ -4,13 +4,12 @@ import Button from "../../UI/Button/Button";
 
 export const Dropdown = (props) => (
   <>
-    <div className="backdrop" onClick={props.closedropDown}>
-      <div className="dropdown" onClick={props.closedropDown}>
-        <Button className="linkbtn">Profile</Button>
-        <Button className="linkbtn" onClick={props.onLogout}>
-          Logout
-        </Button>
-      </div>
+    <div className="backdrop" onClick={props.closedropDown} />
+    <div className="dropdown" onClick={props.closedropDown}>
+      <Button className="linkbtn">Profile</Button>
+      <Button className="linkbtn" onClick={props.onLogout}>
+        Logout
+      </Button>
     </div>
   </>
 );

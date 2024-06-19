@@ -1,4 +1,5 @@
 import React from "react";
+import './button.css'
 
 const Button = (props) => (
   <button
@@ -6,7 +7,7 @@ const Button = (props) => (
     onClick={props.onClick}
     type={props.type}
   >
-    {props.children}
+    <span className="bttn"> {props.children}</span>
   </button>
 );
 
